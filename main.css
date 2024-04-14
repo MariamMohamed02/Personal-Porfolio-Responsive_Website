@@ -1,0 +1,748 @@
+
+/* -----------------------------------------------GLOBAL CLASSES-------------------------- */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* For padding to be "taken from" the width*/
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.clr{
+    clear: both;
+}
+
+/* Container-> Margin for entire website */
+.container
+{
+    width: 80%;
+    margin: auto;
+   
+     
+}
+
+/* common padding between all sections */
+.section{
+    padding: 70px 0;;
+}
+
+::after , ::before{
+    content: '';
+}
+
+
+.pink-color{
+    color: #ff305b;
+}
+
+/* heading of the sections format */
+.main-heading{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    position:relative;
+    margin-bottom: 30px;
+
+}
+
+/* dashed lines under heading */
+
+.main-heading::after,.main-heading::before{
+    /* centre the dashed lines in the middle */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Line in middle of rectangle */
+.main-heading::after{
+   
+    width: 120px;
+    height: 2px;
+    background-color: #ff305b;
+    /* position relative to h2 */
+    position: absolute; 
+    bottom: -10px;
+   
+
+}
+
+/* Rectangle between the line */
+.main-heading::before{
+    height: 12px;
+    width: 80px;
+    /* background-color: black; */
+    border-top: 2px solid #ff305b;
+    border-bottom: 2px solid #ff305b;
+    bottom: -16px;
+}
+
+/* youtube aspect ratio */
+
+.aspect-ratio{
+    aspect-ratio: 16/9;
+}
+
+/* ------------------------------------------------------------- */
+.home{
+    height: 100vh;
+    position: relative;
+    color: white;
+    background-image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.6)) ,url(images/img1.avif);
+    background-position: center;
+    background-size: cover;
+}
+
+.home .nav{
+    /* navbar should be visisble as you scroll */
+    position: fixed;
+    width: 100%;
+    z-index: 9990;
+
+    padding: 20px 0;
+    background-color: #333;
+    
+    
+ 
+}
+.home .home-content{
+    position: absolute;
+    /* To Centre the title in the middle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    text-align: center;
+}
+
+.home .home-content h1{
+    font-size: 70px;
+
+}
+
+.home .home-content p{
+    font-size: 22px;
+}
+
+.home .nav .nav-logo{
+
+    float: left;
+}
+
+.home .nav ul{
+    float: right ;
+}
+.home .nav ul li {
+    float:left ;
+    padding-right: 20px;
+
+}
+
+.home .nav ul li a {
+    text-transform: capitalize;
+    transition: 0.3s  ;
+}
+
+.home .nav ul li a:hover{
+    color: #ff305b;
+    
+}
+
+.home .home-content h4::after {
+    content: " |";
+    animation: cursor;
+    animation-duration: 1.5s;
+    animation-iteration-count: 10;
+    animation-direction: alternate;
+
+}
+
+@keyframes cursor {
+    
+0%{content:" |";}
+ 10% {content: "D|";}
+ 20%{content: "De|";} 
+ 30%{content: "Des|";} 
+ 40% {content:" Desi|";} 
+ 50% {content: "Desig|";} 
+ 60%{content:" Design|";}
+ 70% {content: "Designe|";} 
+ 80%{content: "Designer|";} 
+ 90%{content: "Designer |";} 
+ 100%{content: "Designer |";}
+    
+}
+
+@media only screen and (max-width: 768px) {
+
+    .home .home-content h1{
+        font-size: 50px;
+    }
+
+    .home .nav ul{
+        position: absolute;
+        background-color: gray;
+        width: 100%;
+       left: 0;
+       top: 100%;
+       z-index: 9999;
+       opacity: 0;
+       visibility: hidden;
+       transition: 1s all ;
+       
+       
+    }
+
+    .home .nav ul li{
+        float: none;
+        padding: 18px;
+
+    }
+
+    .icon{
+        width:30px;
+        height: 20px;
+        background-color: gray;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+
+    .icon span{
+        display: inline-block;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        background-color: white;
+    }
+
+    .icon span:nth-child(1){
+        top: 0;
+    }
+    .icon span:nth-child(2){
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+    .icon span:nth-child(3){
+        bottom: 0;
+
+    }
+
+    .icon:hover + ul {
+        opacity: 1;
+        visibility: visible;
+        
+    }
+
+
+    .icon:hover span:nth-child(1){
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+    .icon:hover span:nth-child(2){
+        opacity: 0;
+
+    }
+    .icon:hover span:nth-child(3){
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+
+    }
+    
+}
+
+
+/*  --------------------------------------------------ABOUT SECTION ------------------------------*/
+
+
+
+.about .about-img{
+    float: left;
+    width: 35%;
+}
+
+.about .about-img .border{
+    border: 10px solid #333;
+    border-radius: 7px;
+}
+
+.about .about-img .border .image{
+    position: relative;
+    top: 20px;
+    left: 20px;
+
+    overflow: hidden;
+
+}
+.about .about-img .border .image .layer{
+    /* to make the layer cover the image exactly */
+
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0; 
+    background-color: yellow; */
+
+    /* Or other method for layer to cover the image exactly*/
+
+    /* left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; */
+
+    position: absolute;
+    left: 0;
+    /* the layer "below" the image */
+    top:100%;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s top;
+    background-color: rgba(91, 91, 90, 0.7);
+}
+
+.about .about-img .border .image:hover .layer{
+    top:0;
+}
+
+.about .about-img .border .image img{
+    width: 100%;
+}
+.about .about-content{
+    margin-left: 5%;
+    width: 60%;
+    float: left;
+
+}
+.about .about-content h2{
+    position: relative;
+    padding-left: 6px;
+    margin-bottom: 10px;
+    font-size: 34px;
+}
+.about .about-content h2::before{
+    
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    left: 0;
+    background-color:#ff305b;
+}
+
+.about .about-content p{
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding-bottom: 20px;
+    border-bottom: #333 dashed 2px;
+}
+
+
+.about .about-content ul li{
+    padding-bottom: 20px;
+    float: left;
+    width: 50%;
+}
+
+.about .about-content ul li span{
+    font-weight: bolder;
+}
+
+.about .about-content button{
+    padding: 10px 20px;
+    background-color: #ff305b;
+    border: #ff305b;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: 0.3s ;
+
+}
+
+.about .about-content button:hover{
+    background-color:#EC2403 ;
+}
+
+@media only screen and (max-width: 992px){
+    .about .about-content , .about .about-img{
+        
+        width: 49%;
+        margin: 0;
+    }
+
+    .about .about-img{
+        margin-right: 2%;
+    }
+
+    .about .about-img .border{
+        /* remove the border */
+        border: none;
+
+    }
+
+    .about .about-img .border .image{
+        top: 0;
+        left: 0;
+    }
+
+}
+
+/* smaller screen */
+@media only screen and (max-width: 768px){
+    /* same as screen 992 but two divs under each other */
+    .about .about-content , .about .about-img{
+        width: 100%;
+       margin-bottom: 20px;
+    }
+}
+
+
+/* ---------------------------------------------------SERVICES SECTION --------------------------------------*/
+.service{
+    background-color: #eee;
+}
+
+
+
+.service .service-item{
+    text-align: center;
+    float: left;
+    width: 25%; /* Since they are 4 beside each other*/ 
+    transition: 0.3s background-color; 
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.service .service-item h3{
+    margin-bottom: 10px;
+}
+
+.service .service-item:hover{
+    background-color: #fff;
+}
+
+/* icon above each service item */
+.service .service-item .serv-icon{
+    width: 30px;
+    height: 30px;
+    background-color: #ff305b;
+    margin: 0 auto 10px; /*to centre the icon */
+    border-radius: 7px;
+    transition: 0.3s transform;
+}
+
+/* when you hover on the item, the icon above it should get bigger */
+.service .service-item:hover .serv-icon{
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 992px){
+    .service .service-item{
+        width: 50%; 
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .service .service-item{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* ---------------------------------------------------PORTFOLIO SECTION --------------------------------------*/
+
+.portfolio ul{
+    
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+.portfolio ul li{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.portfolio .portfolio-items{
+    margin-top: 30px;
+}
+
+.portfolio .port-item {
+    float: left;
+    width: 33.333%;
+    position: relative;
+    padding: 20px;
+    position: relative;
+}
+
+.port-item .inner{
+    position: relative;
+}
+.portfolio .port-item img{
+    width: 100%;
+}
+.portfolio .port-item .layer{
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: 0.3s opacity;
+}
+
+/* when you hover on item, change the layer */
+.portfolio .port-item:hover .layer{
+    opacity: 1;
+}
+
+.portfolio .port-item .layer .dev-icon{
+    width:30px;
+    height: 30px;
+    background-color: #ff305b;
+    border-radius: 7px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+@media only screen and (max-width: 992px){
+    .portfolio .port-item{
+        width: 50%; 
+    }
+    .portfolio ul{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .portfolio .port-item{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ---------------------------------------------CLIENTS FEEDBACK SECTION ----------------------*/
+.client .client-item{
+    background-color: #eee;
+    width: 60%;
+    margin: auto;
+    /* frame around the div */
+    padding: 40px;
+    border-radius: 7px;
+    position: relative;
+}
+.client .client-item .item-img{
+    /* image on top of triangle */
+    position: relative;
+    z-index: 2;
+    /* --------- */
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.client .client-item .item-img img{
+    /* for image to be round */
+    border-radius: 50%; 
+    width: 100px; 
+}
+.client .client-item .item-content{
+    float: left;
+    width: 70%;
+}
+
+.client .client-item .item-content h3{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+/* select first paragrapgh */
+.client .client-item .item-content p:nth-of-type(1){
+    color: grey;
+    margin-bottom: 10px;
+
+}
+
+/* pink triangle beside the image */
+.client .client-item .item-content .content-border{
+    border: 100px solid;
+    position: absolute;
+
+    border-color: #ff305b transparent transparent #ff305b ;
+    /* to put it at top left corner */
+    top: 0;
+    left: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    .client .client-item .item-content , .client .client-item .item-img{
+        width: 100%;
+    }
+
+    .client .client-item{
+        width: 100%;
+    }
+}
+
+/* OUR BLOG SECTION */
+.blog{
+    background-color: #eee;
+}
+
+.blog-item{
+    width: 33.33%;  /*since three beside each other */
+    float: left;
+    padding: 20px;
+}
+
+.blog .blog-item .blog-img img{
+    width: 100%;
+}
+
+.blog .blog-item .blog-content{
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0 0 7px 7px;
+}
+
+.blog .blog-item .blog-content p{
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.blog .blog-item .blog-content h3{
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 992px){
+    .blog .blog-item {
+        width: 50%; 
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .blog .blog-item {
+        width: 100%;
+       
+    }
+}
+
+/* ---------------------------- Info Section------------------- */
+.info{
+    background-color: #eee;
+
+} 
+
+.info .info-item{
+    text-align: center;
+    float: left;
+    width: 25%; /* Since they are 4 beside each other*/ 
+    padding: 10px;
+    border-radius: 7px;
+    top: 0;
+    margin-top: 20px;
+}
+
+.info .info-icon{
+    width: 30px;
+    height: 30px;
+    background-color: #ff305b;
+    margin: 0 auto 10px; /*to centre the icon */
+    border-radius: 7px; 
+}
+
+.info .info-item h3{
+     font-weight: bolder;
+     font-size: 20px;
+     margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px){
+    .info .info-item {
+        width: 100%;
+        
+    }
+}
+
+/*-------------------- CONTACT US SECTION --------------*/
+
+.contact .container{
+    width: 50%;
+  
+}
+
+.contact .input-name{
+    width: 49%;
+    float: left;
+
+}
+.contact .input-mail{
+    width: 49%;
+    float: right;
+
+}
+
+.contact input,textarea{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact button{
+    padding: 10px 15px;
+    background-color: #ff305b;
+    color: white;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.contact button:hover{
+    background-color: #EC2403;
+}
+
+@media only screen and (max-width: 768px){
+    .contact .input-name, .contact .input-mail {
+        width: 100%;
+        
+    }
+}
+
+
+/* Footer */
+.footer{
+    height: 150px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 80px;
+    
+
+}
+.footer a{
+    color: #ff305b;
+    
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
